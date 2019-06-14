@@ -5,4 +5,4 @@
 -python
 -vs code
 
-Запуск make install
+Запуск make deploy
