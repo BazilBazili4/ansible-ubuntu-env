@@ -1,0 +1,31 @@
+- include_vars: ../vars/users.yml
+
+- name: Update
+  command: apt-get update
+
+- name: Install mysql
+  apt: pkg={{ item }} state=present
+  with_items:    
+    - mysql-server
+    - libmysqlclient-dev
+
+
+- name : Ensure mysql started
+  service: name=mysql state=started enabled=yes
+
+- name: Create database users with all database privileges
+  mysql_user:
+    name: "{{ item.user }}"
+    password: "{{ item.password }}"
+    priv: '*.*:ALL'
+    state: present
+  with_items: "{{list_db}}"
+
+- name: Create databases 
+  mysql_db:
+    login_user: "{{ item.user }}"
+    login_password: "{{ item.password }}"
+    name: "{{ item.database }}"
+    state: present
+  with_items: "{{list_db}}"
+

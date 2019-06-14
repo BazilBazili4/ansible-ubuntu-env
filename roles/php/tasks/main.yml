@@ -1,0 +1,15 @@
+- name: Install php
+  apt: pkg=php7.2 state=present
+
+- name: Install php modules
+  apt: pkg={{ item }} state=present
+  with_items:
+    - php-mbstring
+    - php-soap
+    - php-xml
+    - php-mysql
+    - php-gd
+    - libapache2-mod-php7.2
+    - php-imagick
+
+

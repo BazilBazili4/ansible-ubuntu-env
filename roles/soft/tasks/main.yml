@@ -1,0 +1,15 @@
+- name: update repository
+  apt:
+    update_cache: yes
+
+- name: import the Microsoft GPG key
+  shell: wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+
+- name: add the Visual Studio Code repository 
+  apt_repository:
+    repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
+    update_cache: yes
+
+- name: install vscode
+  apt: pkg=code state=present
+

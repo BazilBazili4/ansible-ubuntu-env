@@ -1,0 +1,4 @@
+- name: add .gitconfig
+  copy:
+    src: ../files/.gitconfig
+    dest: /home/{{ansible_user_id}}/.gitconfig

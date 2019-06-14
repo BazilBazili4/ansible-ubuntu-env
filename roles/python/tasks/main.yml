@@ -1,0 +1,16 @@
+- name: installing modules
+  apt: pkg={{ item }}  state=present
+  with_items:
+    - python-apt
+    - python3-pymysql
+    - python-dev
+    - python-mysqldb
+    - python3-apt
+
+- name: installing pip
+  apt: pkg=python-pip state=present
+
+- name: Installing virtualenv
+  pip:
+    name: virtualenv
+

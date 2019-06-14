@@ -1,0 +1,15 @@
+[user]
+	email = bazilevsvvv@gmail.com
+	name = Kurlov Vasiliy
+
+[color]
+    ui = auto
+
+[alias]
+    up = pull --rebase
+    co = checkout
+    ci = commit
+    st = status
+    br = branch
+    hist = log --graph --decorate --oneline
+    lt = describe --abbrev=0 --tags
