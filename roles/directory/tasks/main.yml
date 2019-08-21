@@ -1,6 +1,6 @@
 - name: create directories in home
   file:
-    path: "/home/{{ ansible_user_id }}/Projects/misc/ansible-test/{{ item }}"
+    path: "/home/{{ ansible_user_id }}/Projects/{{ item }}"
     state: directory
   loop:
     - estrella
